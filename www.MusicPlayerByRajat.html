@@ -1,0 +1,964 @@
+<!-- Created by Rajat-->
+<!--
+
+
+-- Finally after a long break, I'm back with my codes xD
+
+--Basically I made this code jff
+ but kniw with this cide ill take part in Hetavi's Contest
+
+-- Made by 
+          -- 👑 Rajat 🐶- Im not a dog 😂🤣😒😒😒
+          
+          -- Made with love♥️😍😍
+        
+        Inspirrd from Pininterest
+        And aslo inspired from -
+https://code.dcoder.tech/feed/design/5de2233ef3313804b65e8322/music-player-13
+          
+-- Time - 8:45
+-- date - 17 August 
+
+If you love the cide upvote it and have these 😍
+((🍰🍰🎂🎂🎂🎂🎂🍰🍰🍥🍥🍥🍥🍥🥟🥪🥨🥨🥫🌯🍚🍛🍘🍕🍕🍔🍔🍚🍛🍛🍛🍛🍦🍦🍱🍥🍥🍧🍧🍨🍨🍨🍨🍨🍧🍧🍦🍦🍧🍨🍩🍪🍪🍬🍮🍮🥐🥐🥐🥐🥐🍬🍪🍪🍩🍩🍩🍿🍮🥐🍟🍟🍟🍦🍧🍧🍧🍨🍨🍨🍨🍨🍨🍨🍨🍨🍩))
+
+Note - If you want me to add a good song pls comment after liking the code 😅😊
+
+--><!doctype html>
+<html>
+ <head> 
+  <title>Simple music player by Rajat</title> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+ </head> 
+ <body> 
+  <style>/* Created by Rajat*/
+
+@import url('https://fonts.googleapis.com/css?family=Handlee');
+@import url(' https://fonts.googleapis.com/css?family=Great+Vibes|Ubuntu|Sacramento');
+
+html{
+      scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f012be;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+   font-family: handlee;
+    -webkit-touch-callout: none;     -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    -o-user-select: none; 
+    user-select: none; 
+ 
+}
+
+.container{
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    background: #fffafa;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 20px #0000ff;
+}
+
+
+.card{
+    background: #f5fffa;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #252525;
+    overflow: hidden;
+    margin-bottom: 50px;    
+}
+
+.title{
+    font-size: 25px;
+    margin: 15px;
+    width: calc(100%-20px);
+    word-break: nowrap;
+    overflow: hidden;
+white-space: nowrap;
+text-overflow:handlee ;
+  
+
+}
+
+.author{
+    margin: 0 0 0 15px;
+    color: #252525;
+     width: calc(100%-20px);
+    word-break: nowrap;
+    overflow: hidden;
+white-space: nowrap;
+text-overflow: handlee;
+font-size: 15px;   
+    
+   
+}
+
+.control{
+    width: 100%;
+    text-align: center;
+    
+}
+
+.panel{
+    width: calc(100% - 150px);
+}
+
+.image img{
+    width: 150px;
+    min-height: 100%;
+    object-fit: cover;
+    line-height: 0;
+}
+
+.panel button{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000;
+}
+
+.panel .playbtn{
+    transform: scale(1.5);
+    text-align: center;
+}
+
+
+.control{
+    margin: 40px 0 20px 0px;
+}
+
+
+.banner{
+    width: 100%;
+    height: 200px;
+    background: url(https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: 0.5s;
+}
+
+.icon{
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.text{
+    color: #fff;
+    text-shadow: 0 0 15px #000;
+    font-size: 35px;
+    font-family: great vibes;
+}
+.heart{
+    animation:beat 1s linear infinite ;
+    display:inline-block ;
+}
+@keyframes beat{
+    0%{
+        transform:translateY(-5px) scale(0.8) translateX(1px);
+    }
+    50%{
+        transform:translateY(5px) scale(1.1) translateX(0);
+    }
+    100%{
+        transform:translateY(0px) scale(0.9) translateX(-1px);
+    }
+}
+.searchbar{
+    width: 100%;
+    height: 55px;
+    background: #fff;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 4;
+    transition: 0.5s;
+}
+
+.icon{
+    min-width: 55px;
+}
+
+.back{
+    color: #252525;
+}
+
+#inp{
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.con{
+    color:#000;
+}
+.d{
+    font-size:1em;
+    padding:10px;
+}
+.heart{
+    animation:beat 1s linear infinite ;
+    display:inline-block ;
+}
+@keyframes beat{
+    0%{
+        transform:translateY(-5px) scale(0.8) translateX(1px);
+    }
+    50%{
+        transform:translateY(5px) scale(1.1) translateX(0);
+    }
+    100%{
+        transform:translateY(0px) scale(0.9) translateX(-1px);
+    }
+}
+
+.loadingmusic{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 7;
+    background: #0000ff;
+    color: #ffff00;
+    width: 100%;
+    height: 30px;
+    transform: scaleY(0);
+    transition: 0.5s;
+    transform-origin: bottom;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+.loader div:nth-child(1){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0s;  
+    -webkit-animation-iteration-count: infinite;
+    transition: 1s;
+}
+
+.loader div:nth-child(2){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.08s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.08s;  
+    -webkit-animation-iteration-count: infinite;
+    transition: 1s;
+}
+
+.loader div:nth-child(3){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.16s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.16s;  
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition: 8s;
+}
+
+
+.loader div:nth-child(4){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.24s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.24s;  
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition: 4s;
+}
+
+
+.loader div:nth-child(5){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.32s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.32s;  
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition: 3s;
+}
+
+.loader div:nth-child(6){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.40s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.40s;  
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition: 2s;
+}
+
+.loader div:nth-child(7){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.48s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.48s;  
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition: 1s;
+}
+
+.loader div:nth-child(8){
+    animation-name: colorchange;   
+    animation-duration: 1s; 
+    animation-delay: 0.56s;  
+    animation-iteration-count: infinite;
+    -webkit-animation-name: colorchange;   
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 0.56s;  
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transition:  0.1s;
+}
+
+@keyframes colorchange {
+   0% {
+    background: #07CFD4;
+    }
+    50% { 
+    background: #fff;
+    }
+    100% { 
+    background: #07CFD4;
+    }
+}
+@-webkit-keyframes colorchange {
+    0% {
+    background: #07CFD4;
+    }
+    50% { 
+    background: #fff;
+    }
+    100% { 
+    background: #07CFD4;
+    }
+}
+
+
+.loader div{
+    width: 10px;
+    height: 10px;
+    background: #07CFD4;
+    
+    border-radius: 0px;
+    float: right;
+}
+
+
+.drop{
+    width: 250px;
+    height: 100vh;
+    background: #f5f5f5;
+    box-shadow: 0 0 10px #0009;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    z-index: 8;
+    transition: 0.5s;
+}
+
+.crossm{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    font-size: 20px;
+    color: #07CFD4;
+}
+
+
+
+.preloader{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #f5f5f5;
+}
+.loaders{
+    width: 35px;
+    height: 35px;
+    border-top: 4px solid #07CFD4;
+    border-bottom: 4px solid #07CFD4;
+    border-left: 4px solid #07CFD4;
+    border-right: 4px solid transparent;
+    border-radius: 100px;
+    
+    animation: load 3s linear infinite;
+}
+y
+@keyframes load {
+   
+   0% {
+    transform: rotate(0deg);
+    
+    }
+    100% {
+    transform: rotate(3600deg);
+    
+    }
+     
+    
+}
+@-webkit-keyframes load {
+    
+    0% {
+    transform: rotate(0deg);
+    
+    }
+    100% {
+    transform: rotate(3600deg);
+    
+    }
+     
+}</style> 
+  <div id="drop" class="drop"> 
+   <div onclick="closem()" class="crossm">
+     ╳ Close 
+   </div> 
+   <div class="mtext">
+     The 
+    <a "https: t.me rajat_ankel"><b>Rajat</b></a> 
+    <span class="heart">♥</span>work 
+    <br> 
+    <b>Top in the list</b> 
+    <br> 1. Fake Love 
+    <br> 2. Paper Chasing 
+    <br> 3. Despacito 
+    <br> 4. Yummy 
+    <br> 5. Senorita 
+    <br> 6. Love Me Like You Do  
+    <br> 7. Closer 
+    <br> 8. Shape Of You 
+    <br> 9. Taki Taki 
+    <br>10. Girl Like You 
+    <br> 
+   </div> 
+  </div> 
+  <nav id="nav"> 
+   <div onclick="openm()" class="menu icon"> 
+    <i class="material-icons">menu</i> 
+   </div> 
+   <div onclick="opensearch()" class="search icon"> 
+    <i class="material-icons">search</i> 
+   </div> 
+  </nav> 
+  <div id="sbar" class="searchbar"> 
+   <div onclick="closesearch()" class="back icon"> 
+    <i class="material-icons">arrow_back</i> 
+   </div> 
+   <input oninput="search()" placeholder="I Am still a noob😣" id="inp"> 
+  </div> 
+  <div class="banner"> 
+   <div id="text" class="text"> 
+   </div> 
+  </div> 
+  <div id="container" class="container"> 
+  </div> 
+  <div class="con"> 
+   <div id="loadmusic" class="loadingmusic"> 
+    <div class="loader"> 
+     <div></div> 
+     <div></div> 
+     <div></div> 
+     <div></div> 
+     <div></div> 
+     <div></div> 
+     <div></div> 
+     <div></div> 
+    </div> 
+   </div> 
+   <div id="pre" class="preloader"> 
+    <div class="loaders"> 
+    </div> 
+   </div> 
+   <script>// Created by Rajat 
+
+
+
+var markup = function(id, name, author, image){
+    
+    return `
+    
+    
+    <div class="card">
+        
+        <div class="panel">
+        
+        <div class="title">
+            ${name}
+        </div>
+        
+        <div class="author">
+            ${author}
+        </div>
+        
+        <div class="control">
+            
+            <button onclick="mint()" class="prev">
+            
+            <i class="material-icons">fast_rewind</i>
+                
+                
+            </button>
+            
+            <button id="playbtn${id}" onclick="play(this, ${id})" class="playbtn">
+            
+            <i class="material-icons">play_arrow</i>
+                
+            </button>
+            
+            <button onclick="maxt()" class="next">
+            
+             <i class="material-icons">fast_forward</i>
+                
+            </button>
+            
+        </div>
+            
+        </div>
+        
+        <div class="image">
+        
+        <img src="${image}"/>
+            
+        </div>
+        
+            
+        </div>
+        
+        
+        `;
+    
+};
+
+var aud = new Audio(); 
+
+var lastsong = null;
+
+
+var i=0,text;
+text="     Music Player By Rajat "
+
+
+    
+       function typing(){ document.getElementById("text").innerHTML+=text.charAt(i);
+        i++;
+        }
+        setInterval(typing,300);
+    
+    
+
+var songs = [
+ 
+{
+    name: "Fake Love",
+    artist: "BTS",
+    poster: "https://m.media-amazon.com/images/I/611oJHeuNvL._SS500_.jpg",
+    song:  "http://dl11.youtubetomp3music.com/file/youtubei4JGSpVBEJU320.mp3?fn=BTS%20(%EB%B0%A9%ED%83%84%EC%86%8C%EB%85%84%EB%8B%A8)%20-%20FAKE%20LOVE%20(Color%20Coded%20Lyrics%20Eng_Rom_Han).mp3",
+    isPlay: false
+},
+
+{
+    name: "Paper Chasing",
+    artist: "Lvly feat. G. Curtis",
+    poster: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8d/4a/dd/8d4add89-9dd4-7ebd-3c3c-73e8b98af35b/7330178003583.png/1000x1000bb-60.jpg",
+    song: "http://dl20.youtubetomp3music.com/file/youtubeYOS3Xgs9ctk320.mp3?fn=Lvly%20feat.%20G.%20Curtis%20-%20Paper%20Chasing.mp3",
+    isPlay: false
+},
+
+{
+    name: "Yummy",
+    artist: "Justin Biebet",
+    poster: "https://miro.medium.com/max/640/0*jfJeWbzVcwZ06Sok.jpg",
+    song: "https://dl.dropbox.com/s/s0hh28w0h59chuu/Justin%20Bieber%20-%20Yummy.mp3?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "Cheap Thrills",
+    artist: "Sean Paul",
+    poster: "https://wallpapercave.com/wp/wp4523436.jpg",
+    song: "https://dl.dropbox.com/s/k53x0acfamfesg7/Sia-Cheap-Thrills-ft.-Sean-Paul.mp3?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "Cold Water",
+    artist: "Justin Bieber",
+    poster: "https://pbs.twimg.com/media/Cn_kdiRUIAEeooP?format=jpg&name=small",
+    song: "https://dl.dropbox.com/s/r8neonq04xryfeh/Cold%20Water_Major%20Lazer%2CJustin%20Bieber_Friendship%20Day.xoht?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "Taki Taki",
+    artist: "DJ Snake",
+    poster: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/Taki_Taki_%28Official_Single_Cover%29_-_DJ_Snake.png/220px-Taki_Taki_%28Official_Single_Cover%29_-_DJ_Snake.png",
+    song: "https://dl.dropbox.com/s/cu7txlhrschudfm/DJ%20Snake%20-%20Taki%20Taki%20ft.%20Selena%20Gomez_%20Ozuna_%20Card%28M4A_128K%29.m4a?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "Girls Like You",
+    artist: "Maaron 5, Cardi B",
+    poster: "https://m.media-amazon.com/images/M/MV5BNWM5OWI2OWUtNjhiOS00MWYxLTlhZmUtMGZjYzBlNDA3M2MyXkEyXkFqcGdeQXVyNDQ5MDYzMTk@._V1_QL50_SY1000_SX1000_AL_.jpg",
+    song: "https://dl.dropbox.com/s/yc2k5e8kvtg291q/Girls%20Like%20You_Maroon%205_Girls%20Like%20You.xoht?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "Shape Of You",
+    artist: "Ed Sheeran",
+    poster: "https://m.media-amazon.com/images/I/81PPDaaySeL._SS500_.jpg",
+    song: "https://dl.dropbox.com/s/e53xcg3ur11mqlk/Ed%20Sheeran%20-%20Shape%20Of%20You%20%5BOfficial%5D%20%281%29.mp3?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "I don't care",
+    artist: "Ed Sheeran, Justin Bieber",
+    poster: "https://images.popbuzz.com/images/50942?crop=16_9&width=660&relax=1&signature=yOpdfdBOnxJUHVp-gwR_MWqiiag=",
+    song: "https://dl.dropbox.com/s/du1uuk9mttlm3tf/I%20Don%27t%20Care_Max%20Martin%2CMax%20Martin%2CMax%20Martin%2CMax%20Martin%2CMax%20Martin_I%20Don%27t%20Care.xoht?dl=0",
+    isPlay: false
+},
+
+{
+    name: "Senorita",
+    artist: "Camilla Cabello, Shawn Mendis",
+    poster: "https://images.news18.com/ibnlive/uploads/2019/07/Shawn-Mendes-Camila-Cabello.jpg?impolicy=website&width=362&height=240",
+    song: "https://dl.dropbox.com/s/xa32b56cmhtk7h6/Shawn%20Mendes%20ft.%20Camila%20Cabello%20-%20Se%C3%B1orita%20%281%29.mp3?dl=0",
+    isPlay: false
+},
+
+
+
+
+{
+    name: "Love Me Like You Do",
+    artist: "Ellie Goudling",
+    poster: "https://upload.wikimedia.org/wikipedia/en/1/17/Ellie_Goulding_-_Love_Me_Like_You_Do.png",
+    song: "https://dl.dropbox.com/s/t2c46404cyrygr1/Ellie%20Goulding%20-%20Love%20Me%20Like%20You%20Do%20.mp3?dl=0",
+    isPlay: false
+},
+
+
+
+{
+    name: "Alone",
+    artist: "Alan Walker",
+    poster: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Alan_Walker_-_Alone.png/220px-Alan_Walker_-_Alone.png",
+    song: "https://dl.dropbox.com/s/9m1mv413y8typji/Alan%20Walker%20-%20Alone.mp3?dl=0",
+    isPlay: false
+},
+
+
+{
+    name: "Faded",
+    artist: "Alan Walker",
+    poster: "https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Alan_Walker_-_Faded.png/220px-Alan_Walker_-_Faded.png",
+    song: "https://dl.dropbox.com/s/4dr5sfmoyi9572k/Alan%20Walker%20-%20Faded.mp3?dl=0 ",
+    isPlay: false
+},
+
+
+{
+    name: "Thunder",
+    artist: "Imagine Dragons",
+    poster: "https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Imagine_Dragons_Thunder.jpg/220px-Imagine_Dragons_Thunder.jpg",
+    song: "https://dl.dropbox.com/s/xvxt4bic6hyu5b2/Imagine%20Dragons%20Thunder.mp3?dl=0",
+    isPlay: false
+},
+
+
+
+
+{
+    name: "Closer",
+    artist: "Chainsmoker, Ft. Halsey",
+    poster: "https://wallpapercave.com/wp/wp4606687.jpg",
+    song: "https://dl.dropbox.com/s/zrll5kci35tyvw1/The%20Chainsmokers%20-%20Closer%20ft%20Halsey.mp3?dl=0",
+    isPlay: false
+},
+
+
+{
+    name: "Despacito",
+    artist: "Daddy Yankee, Louis Foncy",
+    poster: "https://m.media-amazon.com/images/M/MV5BNmQ4YzYwOWMtODBkOC00YjljLTkzMGYtYjY2OGU1N2NiODE5XkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UY120_CR19,0,82,120_AL_.jpg",
+    song: "https://dl.dropbox.com/s/5v7lazyj1x0yz5r/Luis%20Fonsi%20-%20Despacito%20ft%20Daddy%20Yankee.mp3?dl=0",
+    isPlay: false
+},
+
+{
+    name: "Old Town Road",
+    artist: "Lil Nas",
+    poster: "https://musicrow.com/wp-content/uploads/2019/05/Old-Town-Road-poster.jpg",
+    song: "https://dl.dropbox.com/s/j1y8td9gbtg8j2q/Lil%20Nas%20X%20-%20Old%20Town%20Road%20ft%20Billy%20Ray%20Cyrus.mp3?dl=0",
+    isPlay: false
+},
+
+
+];
+
+
+window.onscroll = function (){
+    
+    var nav = document.getElementById("nav");
+    var textb = document.getElementById("text");
+    
+      textb.style.transform = "translate(0, -"+window.scrollY/2+"px)"
+    
+    if(window.scrollY >= 145){
+    
+    nav.style.background = "#07CFD4";
+    
+  
+    
+    }else {
+    
+    nav.style.background = "transparent";
+        
+    }
+    
+}
+
+
+
+window.onload = function (){
+    
+    var container = document.getElementById("container");
+    
+    for(var i=0; i<=songs.length - 1; i++){
+    
+    container.innerHTML += markup(i, songs[i].name, songs[i].artist, songs[i].poster);
+    
+    }
+    var pre = document.getElementById("pre");
+   
+   pre.style.display = "none";
+   
+   
+}
+
+
+function opensearch(){
+
+   document.getElementById("sbar").style.right = "0";
+   
+   scrollTo(0, 145);
+    
+}
+
+function openm(){
+    
+    document.getElementById("drop").style.left = "0";
+    
+}
+
+function closem(){
+    
+    document.getElementById("drop").style.left = "-300px";
+    
+}
+
+function closesearch(){
+
+   document.getElementById("sbar").style.right = "-100%";
+   
+   document.getElementById("inp").value = "";
+   
+  var cardc = document.getElementsByClassName("card");
+  
+  for(var i = 0; i<=cardc.length-1; i++){
+      
+      cardc[i].style.display = "";
+      
+  }
+    
+}
+
+
+function search(){
+    var m = document.getElementsByClassName("card");
+    var inp = document.getElementById("inp").value.toUpperCase();
+for (var i = 0; i <= m.length-1; i++){
+    if(m[i].innerHTML.toUpperCase().indexOf(inp) != -1 ){
+        m[i].style.display = "";
+    }else {
+         m[i].style.display = "none";
+    }
+  }
+}
+
+
+function mint(){
+var isPlaying = aud.currentTime > 0 && !aud.paused && !aud.ended && aud.readyState > 2; 
+    
+    if (isPlaying) {  
+    aud.currentTime = aud.currentTime-10;
+    }
+}
+
+
+function maxt(){
+var isPlaying = aud.currentTime > 0 && !aud.paused && !aud.ended && aud.readyState > 2; 
+    
+    if (isPlaying) {  
+    aud.currentTime = aud.currentTime+10;
+    }
+}
+
+
+
+
+
+
+function play(e, i){
+
+
+    
+    if(songs[i].isPlay == false){
+    
+    var loadmusic = document.getElementById("loadmusic");
+    
+    loadmusic.style.transform = "scaleY(1)";
+    
+    
+    aud.addEventListener('loadeddata', function() {
+    
+    loadmusic.style.transform = "scaleY(0)";
+       
+    }, false);
+    
+    
+    if(lastsong == null){
+        
+        e.innerHTML = "<i class='material-icons'>pause</i>";
+        
+        aud.src = songs[i].song;
+        
+        aud.play();
+        
+        songs[i].isPlay = true;
+        
+        lastsong = i;
+        
+        }else {
+            
+            songs[lastsong].isPlay = false;
+            
+            document.getElementById("playbtn"+lastsong).innerHTML = "<i class='material-icons'>play_arrow</i>";
+            
+            e.innerHTML = "<i class='material-icons'>pause</i>";
+        
+        aud.src = songs[i].song;
+        
+        aud.play();
+        
+        songs[i].isPlay = true;
+        
+        lastsong = i;
+            
+        }
+        
+        
+        
+    }else {
+    
+    var isPlaying = aud.currentTime > 0 && !aud.paused && !aud.ended && aud.readyState > 2; 
+    
+    if (isPlaying) {  
+        
+        e.innerHTML = "<i class='material-icons'>play_arrow</i>";
+        
+        songs[i].isPlay = false;
+        
+        aud.pause();
+        
+        lastsong = null;
+        
+        }
+    }
+}
+
+alert("There are my favorite songs in the playlist");
+</script> 
+  </div> 
+ </body>
+</html>
